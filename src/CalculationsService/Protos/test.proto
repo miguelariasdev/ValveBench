@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "ValveBench.proto";
+
+message TestProfile {
+  double p1Bar = 1;   // initial pressure
+  double p2Bar = 2;   // target pressure
+  int32  cycles = 3;  // number of cycles P1->P2->P1
+  double tempC = 4;   // temperature in °C
+}
+
+message TestResult {
+  double peakPressureBar = 1;   // peak pressure reached
+  double pressureDropBar = 2;   // estimated pressure drop after cycles
+  bool   leakDetected = 3;      // leak detected (yes/no)
+}
+
+service Calc {
+  rpc Calculate (TestProfile) returns (TestResult);
+}

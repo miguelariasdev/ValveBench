@@ -1,0 +1,20 @@
+services:
+  calculationsservice:
+    build:
+      context: .
+      dockerfile: src/CalculationsService/Dockerfile
+    container_name: calculationsservice
+    ports:
+      - "8090:8090"
+
+  operationsapi:
+    build:
+      context: .
+      dockerfile: src/OperationsApi/Dockerfile
+    container_name: operationsapi
+    environment:
+      - CALC_URL=http://calculationsservice:8090
+    ports:
+      - "8080:8080"
+    depends_on:
+      - calculationsservice
