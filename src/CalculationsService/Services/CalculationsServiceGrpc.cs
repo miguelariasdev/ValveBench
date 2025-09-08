@@ -9,8 +9,7 @@ public class CalculationsServiceGrpc : Calc.CalcBase
     {
         var peak = Math.Max(req.P1Bar, req.P2Bar);
 
-        var drop = (peak * 0.005) * req.Cycles
-                 + Math.Max(0, (req.TempC - 60) * 0.001 * peak);
+        var drop = (peak * 0.0005) * req.Cycles + Math.Max(0, (req.TempC - 60) * 0.001 * peak);
 
         var leak = drop > peak * 0.02;
 

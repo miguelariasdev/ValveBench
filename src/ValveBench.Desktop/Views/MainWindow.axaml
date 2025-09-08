@@ -16,7 +16,7 @@
 	<StackPanel Margin="20" Spacing="10">
 		<TextBlock Text="{Binding Title}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
-		<TextBlock Text="Perfil de prueba" FontSize="18" />
+		<TextBlock Text="Test profile" FontSize="18" />
 
 		<StackPanel Orientation="Horizontal" Spacing="10">
 			<TextBlock Text="P1 (bar):" Width="80"/>
